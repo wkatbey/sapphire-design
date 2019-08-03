@@ -1,0 +1,28 @@
+.home-hero-image {
+    background-image: url('blue_sky.jpg');
+    background-repeat: no-repeat;
+    background-position: top;
+    height: 70rem;
+}
+
+.hero-text-container {
+    background-color: rgba(110, 202, 255, 0.40);
+    transform: translateY(20rem);
+    padding-top: 5rem;
+    padding-bottom: 3rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    border-radius: 1rem;
+}
+
+.hero-heading-font {
+    color: white;
+    font-size: 2.5rem;
+    font-weight: 400;
+}
+
+.hero-subheading-font {
+    color: white;
+    font-size: 1.4rem;
+    font-weight: 400;
+}
