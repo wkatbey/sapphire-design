@@ -1,0 +1,194 @@
+{% extends './base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block hero-content %}
+<nav class="navbar navbar-expand-lg navbar-transparent navbar-desktop">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link nav-text nav-text--light" href="{% url 'static_website:index' %}">
+                <span class="navbar-link"><i class="fas fa-home"></i> Home</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link nav-text nav-text--light" href="#philosophy">
+                <span class="navbar-link"><i class="fas fa-heart"></i> Philosophy</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link nav-text nav-text--light" href="#contact_us">
+                <span class="navbar-link"><i class="fas fa-id-card"></i> Contact Us</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-4">
+            <div class="hero-text-container">
+                <p class="hero-heading-font">
+                    Sapphire Design
+                </p>
+                <p class="hero-subheading-font">
+                    Your source for elegant web design
+                </p>
+                <p class="hero-subheading-font">
+                    <a href="#intro" class="btn btn-outline-light btn-rounded btn-large">Learn More</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block body %}
+<div id="intro" class="container pt-5">
+    <p class="text-center heading-font">Unlock Your Business' True Potential</p>
+    <div class="row pt-5">
+        <div class="col-lg-4">
+            <div class="text-center">
+                <img src="https://img.icons8.com/dusk/64/000000/statistics.png">
+            </div>
+            <p class="attribute-heading-font text-center pt-4">
+                Marketable 
+            </p>
+            <p class="attribute-body-font pt-3">
+                Potential clients will need a good first impression of your business before
+                getting in contact. A welcoming, comforting webpage will give your company a
+                platform to flurish.
+            </p>
+        </div>
+        <div class="col-lg-4 pl-lg-5">
+            <div class="text-center">
+                <img src="https://img.icons8.com/dusk/64/000000/phone-office.png">
+            </div>
+            <p class="attribute-heading-font text-center pt-4">
+                Easy Contact
+            </p>
+            <p class="attribute-body-font pt-3">
+                A contact form is needed for an easy and anonymous inquiry into your business. 
+                We make that process seamless.
+            </p>
+        </div>
+        <div class="col-lg-4 pl-lg-5">
+            <div class="text-center">
+                <img src="https://img.icons8.com/dusk/64/000000/list.png">
+            </div>
+            <p class="attribute-heading-font text-center pt-4">
+                Dynamic
+            </p>
+            <p class="attribute-body-font pt-3">
+                Your website should evolve with your business. We integrate a system that allows 
+                business owners to add additional items to their inventory, so that potential clients
+                have an up to date list of your services.
+            </p>
+        </div>
+    </div>
+    <hr>
+    <p id="philosophy" class="text-center heading-font pt-5 pb-5">Sapphire Design: Our Philosophy</p> 
+    <div class="row">
+        <div class="col-lg-12">
+            <p class="reading-font">
+                Sapphire Design is a project aimed at creating dynamic websites for small businesses that can be managed by the 
+                businessowners themselves. Every website is your own application, and requested services can be added, modified, or 
+                removed by you.
+            </p>
+            <p class="reading-font">
+                When a business undergoes change, its website should reflect that change. Our websites are designed such that you can 
+                easily make those changes, with assistance from our team if needed. 
+            </p>
+        </div>
+    </div>
+    <p class="text-center heading-font pt-5 pb-5">Flexibility</p>
+    <div class="row">
+        <div class="col-lg-12">
+            <p class="reading-font">
+                Upon request, sections of the webpage can be made modifiable by our clients. Business owners typically
+                know which areas of their business are bound to change, and can anticipate that their website will change 
+                with them.
+            </p>
+        </div>
+    </div>
+    <p class="text-center heading-font pt-5 pb-5">Modernity</p>
+    <div class="row">
+        <div class="col-lg-12"> 
+            <p class="reading-font">We are a team of knowledgable web developers. We can write any of the following applications:</p>
+            <ul class="reading-font">
+                <li>Static Website</li>
+                <li>Single Page Application (Dynamic)</li>
+                <li>Multi Page Application (Dynamic)</li>
+            </ul>
+        </div>
+    </div>
+    <p id="contact_us" class="text-center heading-font pt-5 pb-5">Interested? Let's Get in Touch!</p>
+    <div class="row">
+        <div class="col-lg-6">
+            {{ form.first_name | as_crispy_field }}
+        </div>
+        <div class="col-lg-6">
+            {{ form.last_name | as_crispy_field }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            {{ form.business | as_crispy_field }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            {{ form.inquiry | as_crispy_field }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <button type="submit" class="btn btn-outline-dark btn-block">Send</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div id="map" class="map"></div>
+        </div>
+    </div>
+    <input type="hidden" name="location" value="730 Ridgemont Ave, Dearborn, MI">
+</div>
+
+<script>
+        function initMap() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 8,
+            center: {lat: -34.397, lng: 150.644}
+            });
+            var geocoder = new google.maps.Geocoder();
+            geocodeAddress(geocoder, map);
+            
+        }
+    
+        function geocodeAddress(geocoder, resultsMap) {
+            var address = document.getElementById('location').value;
+            geocoder.geocode({'address': address}, function(results, status) {
+            if (status === 'OK') {
+                resultsMap.setCenter(results[0].geometry.location);
+                var marker = new google.maps.Marker({
+                map: resultsMap,
+                position: results[0].geometry.location
+                });
+            } else {
+                alert('Geocode was not successful for the following reason: ' + status);
+            }
+            });
+        }
+</script>
+      
+    
+<script 
+    async defer 
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCnqYLdmY8QTO6Ua2bh4I9YLQlXFPudgdg&callback=initMap" type="text/javascript">
+</script>   
+{% endblock %}
+
