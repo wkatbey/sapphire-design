@@ -1,0 +1,1 @@
+web: gunicorn rouge_salon_spa.wsgi
