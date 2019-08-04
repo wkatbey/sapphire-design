@@ -123,5 +123,15 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+
+STATIC_URL = '/static/'
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static_website/static/'),
+]
+
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
