@@ -1,3 +1,6 @@
+import os
+import sendgrid
+from sendgrid.helpers.mail import *
 from django.shortcuts import render
 from django.views.generic import TemplateView, View
 from static_website.forms import ContactForm
@@ -17,21 +20,16 @@ class Home(View):
         context = {}
         form = ContactForm(request.POST)
         if form.is_valid():
+            # sg = sendgrid.SendGridAPIClient(apikey=os.environ.get('SENDGRID_API_KEY'))
             message = form.cleaned_data['inquiry']
             from_email = form.cleaned_data['email']
             subject = form.cleaned_data['business'] + ' ' + DEFAULT_SUBJECT
             full_name = form.cleaned_data['first_name'] + ' ' + form.cleaned_data['last_name']
 
-            send_mail(
-                subject,
-                message,
-                from_email,
-                [COMPANY_EMAIL],
-                fail_silently=True
-            )
+            content = "text/plain", "Hello, Email!"
 
-            print(subject)
-
+            send_mail(subject, message, from_email, [COMPANY_EMAIL], fail_silently=False)
+     
             form = ContactForm()
 
             context['form'] = form
