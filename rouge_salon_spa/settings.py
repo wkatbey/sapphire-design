@@ -26,7 +26,9 @@ SECRET_KEY = 'tm0e6d264+4$!+1nmbi@&^p#02v$@d)$)an%9qcflgtnus2&q@'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'sapphiredesignmi.com'
+]
 
 
 # Application definition
