@@ -127,35 +127,41 @@
         </div>
     </div>
     <p id="contact_us" class="text-center heading-font pt-5 pb-5">Interested? Let's Get in Touch!</p>
-    <div class="row">
-        <div class="col-lg-6">
-            {{ form.first_name | as_crispy_field }}
+    <form method="POST">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-lg-6">
+                {{ form.first_name | as_crispy_field }}
+            </div>
+            <div class="col-lg-6">
+                {{ form.last_name | as_crispy_field }}
+            </div>
         </div>
-        <div class="col-lg-6">
-            {{ form.last_name | as_crispy_field }}
+        <div class="row">
+            <div class="col-lg-6">
+                {{ form.email | as_crispy_field }}
+            </div>
+            <div class="col-lg-6">
+                {{ form.business | as_crispy_field }}
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-6">
-            {{ form.business | as_crispy_field }}
+        <div class="row">
+            <div class="col-lg-12">
+                {{ form.inquiry | as_crispy_field }}
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-12">
-            {{ form.inquiry | as_crispy_field }}
+        <div class="row">
+            <div class="col-lg-12">
+                <button type="submit" class="btn btn-outline-dark btn-block">Send</button>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-12">
-            <button type="submit" class="btn btn-outline-dark btn-block">Send</button>
+        <div class="row">
+            <div class="col-lg-12">
+                <div id="map" class="map"></div>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-12">
-            <div id="map" class="map"></div>
-        </div>
-    </div>
-    <input type="hidden" name="location" value="730 Ridgemont Ave, Dearborn, MI">
+        <input type="hidden" name="location" value="730 Ridgemont Ave, Dearborn, MI">    
+    </form>
 </div>
 
 <script>

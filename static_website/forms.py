@@ -3,6 +3,7 @@ from django import forms
 class ContactForm(forms.Form):
     first_name = forms.CharField(label='First Name')
     last_name = forms.CharField(label='Last Name')
+    email = forms.CharField(label='Email')
     business = forms.CharField(label='Company')
     inquiry = forms.CharField(
         label = 'Your Inquiry',
