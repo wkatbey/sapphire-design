@@ -136,3 +136,10 @@ django_heroku.settings(locals())
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
+DEFAULT_FROM_EMAIL = 'katbeywassim@gmail.com'
+SERVER_EMAIL = 'katbeywassim@gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'katbeywassim@gmail.com'
+EMAIL_HOST_PASSWORD = 'Kanon323~'
