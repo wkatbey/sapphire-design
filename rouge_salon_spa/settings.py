@@ -123,9 +123,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-<<<<<<< HEAD
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-=======
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
->>>>>>> e6a7c0b8cdf8259d3dc106d0df192332b820d37f
