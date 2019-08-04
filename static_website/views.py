@@ -1,7 +1,7 @@
 import os
 import sendgrid
 from sendgrid.helpers.mail import *
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import TemplateView, View
 from static_website.forms import ContactForm
 from django.core.mail import send_mail
@@ -14,9 +14,11 @@ class Home(View):
 
     def get(self, request):
         form = ContactForm()
+        print("In get")
         return render(request, self.template_name, {'form': form})
 
     def post(self, request):
+        print("In post")
         context = {}
         form = ContactForm(request.POST)
         if form.is_valid():
@@ -28,14 +30,14 @@ class Home(View):
 
             content = "text/plain", "Hello, Email!"
 
-            send_mail(subject, message, from_email, [COMPANY_EMAIL], fail_silently=False)
+            send_mail(subject, message, from_email, [COMPANY_EMAIL], fail_silently=True)
      
             form = ContactForm()
 
             context['form'] = form
             context['message'] = "We appreciate your inquiry! A member of our team will respond as soon as they can"
 
-            return render(request, self.template_name, context)
+            return redirect(request.path)
 
         form = ContactForm()
-        return render(request, self.template_name, {'form': form})
+        return redirect(request.path)
