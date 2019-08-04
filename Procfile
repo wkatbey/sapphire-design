@@ -1,1 +1,1 @@
-web: gunicorn personal_website.wsgi
+web: gunicorn rouge_salon_spa.wsgi
