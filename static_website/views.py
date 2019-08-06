@@ -14,11 +14,9 @@ class Home(View):
 
     def get(self, request):
         form = ContactForm()
-        print("In get")
         return render(request, self.template_name, {'form': form})
 
     def post(self, request):
-        print("In post")
         context = {}
         form = ContactForm(request.POST)
         if form.is_valid():
