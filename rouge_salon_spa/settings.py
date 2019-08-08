@@ -48,6 +48,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'rouge_salon_spa.middleware.RemoveWWWMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -147,3 +148,4 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
 SECURE_SSL_REDIRECT = True
+REMOVE_WWW = True
